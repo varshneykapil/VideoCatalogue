@@ -1,0 +1,25 @@
+﻿<div>
+    <!-- ko if: $root.showUploadError() -->
+    <div class="alert alert-danger">
+        An error occured while uploading file(s). Please try again.
+    </div>
+    <!--/ko-->
+    <!-- ko if: $root.showLargeUploadError() -->
+    <div class="alert alert-danger">
+        An error occured while uploading file(s). Response Code 413. Please try again.
+    </div>
+    <!--/ko-->
+    <div class="alert alert-info">
+        Choose MP4 files to upload to the Video Catalogue
+    </div>
+    <div>
+        <form id="form-upload-videos">
+            <input type="file" id="file-videos" name="videos" class="form-input" accept=".mp4" multiple required />
+            <button class="btn btn-info" data-bind="click:$root.UploadVideos">Upload</button>
+            <!-- ko if: $root.InProgress() -->
+            <img style="width:35px" src="~/img/spinner.gif" />
+            <!--/ko-->
+        </form>        
+    </div>
+
+</div>

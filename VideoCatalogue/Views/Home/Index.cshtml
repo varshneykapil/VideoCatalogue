@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- ko if: $root.ShowUploadFormView() -->
+@Html.Partial("_UploadFormView")
+<!-- /ko -->
+<!-- ko if: $root.ShowCatalogueView() -->
+@Html.Partial("_CatalogueView")
+<!-- /ko -->

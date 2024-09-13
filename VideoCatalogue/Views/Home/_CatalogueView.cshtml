@@ -1,0 +1,41 @@
+﻿<div>
+    <!-- ko if: $root.Videos().length == 0 -->
+    <div class="alert alert-info">
+        The catalogue is empty. Use upload form to add videos.
+    </div>
+    <!--/ko-->
+
+    <!-- ko if: $root.Videos().length > 0 -->
+    <div>
+        <div class="alert alert-info">
+            Select a video from the table to start playback
+        </div>
+
+        <video id="vpCatalogue" width="100%" height="400" controls>
+            <source type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Video Filename</th>
+                    <th>File Size KB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ko foreach: $root.Videos -->
+                <tr data-bind="click:$root.ShowVideo.bind(this, name)">
+                    <td>
+                        <span data-bind="text:name"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text:size"></span>
+                    </td>
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+    <!--/ko-->
+</div>
